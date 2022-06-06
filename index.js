@@ -1,9 +1,16 @@
 function isPalindrome(word) {
-  let len = Math.floor(word.length / 2);  // Floor for the half the word length.
-  for (let i = 0; i < len; i++)           // looping through the first half the word.
-    if (word[i] !== word[word.length - i - 1]) return false; 
-     // when a letter with its corresponding letter from the other half doesn't match, return false (not Palindrome).
-  return true;                            //  otherwise the word is palindrome (true).
+  // iterate from the beginning of the string to the middle of the string
+  for (let i = 0; i < word.length / 2; i++) {
+    // compare the letter we're iterating over to the corresponding letter at the end of the string
+    const j = word.length - 1 - i;
+    if (word[i] !== word[j]) {
+      // if the letters don't match, return false
+      return false;
+    }
+  }
+
+  // if we reach the middle, and all the letters match, return true
+  return true;
 }
 
 console.log("check: ", isPalindrome("roor"));
